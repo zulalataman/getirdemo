@@ -16,12 +16,12 @@ public class ProductController {
     private final ProductService productService;
 
     @Autowired
-    public ProductController(ProductService productService){
+    public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
     @GetMapping("/products")
-    public List<Product> getProducts(){
+    public List<Product> getProducts() {
         return productService.getAllProducts();
     }
 }

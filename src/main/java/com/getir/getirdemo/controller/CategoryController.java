@@ -3,9 +3,7 @@ package com.getir.getirdemo.controller;
 import com.getir.getirdemo.model.Category;
 import com.getir.getirdemo.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +21,10 @@ public class CategoryController {
     @GetMapping("/categories")
     public List<Category> getCategories() {
         return categoryService.getAllCategories();
+    }
+
+    @PostMapping("/addCategory")
+    public Category addCategory(@RequestBody Category category) {
+        return categoryService.addNewCategory(category);
     }
 }
