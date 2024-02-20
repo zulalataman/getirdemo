@@ -24,4 +24,8 @@ public class CategoryService {
     public Category addNewCategory(Category category) {
         return categoryRepository.save(category);
     }
+
+    public void deleteOldCategory(Long id) {
+        categoryRepository.deleteById(id);
+    }
 }

@@ -20,4 +20,10 @@ public class UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    public User deleteUserByMail(String mail) {
+        User user = userRepository.findByMail(mail);
+        userRepository.delete(user);
+        return user;
+    }
 }
