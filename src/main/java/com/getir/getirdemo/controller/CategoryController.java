@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/category")
@@ -31,5 +32,15 @@ public class CategoryController {
     @DeleteMapping("/deleteCategory/{id}")
     public void deleteCategory(@PathVariable Long id) {
         categoryService.deleteOldCategory(id);
+    }
+
+    @GetMapping("/getCategory/{id}")
+    public Optional<Category> getCategory(@PathVariable Long id) {
+        return categoryService.getCategoryById(id);
+    }
+
+    @PutMapping("/updateCategory/{id}")
+    public Category updateCategory(@PathVariable Long id, @RequestBody Category category) {
+        return categoryService.updateOldCategory(id, category);
     }
 }
