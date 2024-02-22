@@ -30,11 +30,11 @@ public class CategoryService {
         categoryRepository.deleteById(id);
     }
 
-    public Optional<Category> getCategoryById(Long id){
+    public Optional<Category> getCategoryById(Long id) {
         return categoryRepository.findById(id);
     }
 
-    public Category updateOldCategory(Long id, Category newCategory){
+    public Category updateOldCategory(Long id, Category newCategory) {
         Category currentCategory = categoryRepository.getReferenceById(id);
         currentCategory.setName(newCategory.getName());
         currentCategory.setDescription(newCategory.getDescription());

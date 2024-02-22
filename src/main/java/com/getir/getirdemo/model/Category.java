@@ -21,4 +21,12 @@ public class Category {
 
     @Column(name = "image_path")
     private String imagePath;
+
+    public Category(Long id) {
+        this.id = id;
+    }
+
+    public Category() {
+
+    }
 }
