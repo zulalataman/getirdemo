@@ -33,7 +33,7 @@ public class ProductController {
     @PostMapping("/addProduct")
     public Product addProduct(@RequestBody String data) {
         JSONObject json = new JSONObject(data);
-        return productService.addNewProduct(json.getString("name"), json.getString("description"), json.getDouble("price"), json.getInt("stock"), json.getLong("category"));
+        return productService.addNewProduct(json.getString("name"), json.getString("description"), json.getDouble("price"), json.getInt("stock"), json.getLong("category"), json.getString("img"));
     }
 
     @DeleteMapping("/deleteProduct/{id}")
@@ -44,5 +44,10 @@ public class ProductController {
     @PutMapping("/updateProduct/{id}")
     public Product updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct) {
         return productService.updateProduct(id, updatedProduct);
+    }
+
+    @GetMapping("/{categoryId}/products")
+    public List<Product> getCategoryProducts(@PathVariable Long categoryId) {
+        return productService.getProductsByCategoryId(categoryId);
     }
 }

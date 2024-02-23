@@ -29,7 +29,7 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-    public Product addNewProduct(String name, String description, Double price, int stock, Long categoryId) {
+    public Product addNewProduct(String name, String description, Double price, int stock, Long categoryId, String img) {
         Category category = categoryService.getCategoryById(categoryId).orElseThrow(() -> new RuntimeException("Kategori bulunamadı."));
 
         Product product = new Product();
@@ -38,6 +38,7 @@ public class ProductService {
         product.setPrice(price);
         product.setStock(stock);
         product.setCategory(category);
+        product.setImg(img);
 
         return productRepository.save(product);
     }
@@ -57,7 +58,12 @@ public class ProductService {
         productToUpdate.setPrice(updatedProduct.getPrice());
         productToUpdate.setStock(updatedProduct.getStock());
         productToUpdate.setCategory(category);
+        productToUpdate.setImg(updatedProduct.getImg());
 
         return productRepository.save(productToUpdate);
+    }
+
+    public List<Product> getProductsByCategoryId(Long categoryId) {
+        return productRepository.findByCategoryId(categoryId);
     }
 }
