@@ -27,4 +27,9 @@ public class UserController {
     public User deleteUserByMail(@PathVariable String mail) {
         return userService.deleteUserByMail(mail);
     }
+
+    @PostMapping("/addUser")
+    public User addUser(@RequestBody User user) {
+        return userService.addNewUser(user);
+    }
 }

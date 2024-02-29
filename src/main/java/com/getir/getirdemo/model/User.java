@@ -3,8 +3,6 @@ package com.getir.getirdemo.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
 @Entity
 @Table(name = "user", schema = "public")
@@ -32,7 +30,4 @@ public class User {
 
     @Column(name = "address")
     private String address;
-
-    @Column(name = "date_birth")
-    private Date dateBirth;
 }
