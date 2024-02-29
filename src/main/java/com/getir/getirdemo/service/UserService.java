@@ -26,4 +26,8 @@ public class UserService {
         userRepository.delete(user);
         return user;
     }
+
+    public User addNewUser(User user) {
+        return userRepository.save(user);
+    }
 }
